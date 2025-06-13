@@ -9,7 +9,7 @@
         "developer": "Infinity Ward",
         "publisher": "Activision",
         "rating": "M",
-        "price": "19.99€",
+        "price": "14.99€",
         "description": "A first-person shooter game that follows a group of soldiers as they fight against a Russian ultranationalist faction and a Middle"
     },
     {
@@ -22,7 +22,7 @@
         "developer": "Sega",
         "publisher": "Sega",
         "rating": "M",
-        "price": "19.99€",
+        "price": "21.49€",
         "description": "A prequel to the Yakuza series, set in 1988 Japan, where players control Kazuma Kiryu and Goro Majima as they navigate the criminal underworld of Kamurocho and Sotenbori."
     },
     {
@@ -35,7 +35,7 @@
         "developer": "Black Box",
         "publisher": "Electronic Arts",
         "rating": "E10+",
-        "price": "19.99€",
+        "price": "7.49€",
         "description": "An open-world racing game where players compete against street racers and evade the police in a bid to become the most wanted racer in Fairhaven City."
     },
     {
@@ -48,7 +48,7 @@
         "developer": "Polyphony Digital",
         "publisher": "Sony Computer Entertainment",
         "rating": "E",
-        "price": "19.99€",
+        "price": "5.49€",
         "description": "A realistic racing simulation game featuring a wide variety of cars and tracks, with a focus on authentic driving physics and detailed graphics."
     },
     {
@@ -61,7 +61,7 @@
         "developer": "Ubisoft",
         "publisher": "Ubisoft",
         "rating": "M",
-        "price": "19.99€",
+        "price": "10.49€",
         "description": "An action-adventure game set during the American Revolution, where players control Connor Kenway, a half-English, half-Mohawk assassin, as he fights against the Templar Order and seeks to protect his people."
     },
     {
@@ -74,7 +74,7 @@
         "developer": "DICE",
         "publisher": "Electronic Arts",
         "rating": "M",
-        "price": "19.99€",
+        "price": "7.99€",
         "description": "A first-person shooter game that focuses on large-scale multiplayer battles, featuring destructible environments and a variety of vehicles."
     },
     {
@@ -87,7 +87,7 @@
         "developer": "Polyphony Digital",
         "publisher": "Sony Computer Entertainment",
         "rating": "E",
-        "price": "19.99€",
+        "price": "5.49€",
         "description": "A realistic racing simulation game featuring a wide variety of cars and tracks, with a focus on authentic driving physics and detailed graphics."
     },
     {
@@ -100,7 +100,7 @@
         "developer": "Capcom",
         "publisher": "Capcom",
         "rating": "M",
-        "price": "19.99€",
+        "price": "22.99€",
         "description": "A remake of the classic survival horror game, where players control Leon S. Kennedy and Claire Redfield as they navigate a zombie-infested Raccoon City to escape and uncover the truth behind the outbreak."
     },
     {
@@ -113,7 +113,7 @@
         "developer": "Respawn Entertainment",
         "publisher": "Electronic Arts",
         "rating": "M",
-        "price": "19.99€",
+        "price": "6.49€",
         "description": "A first-person shooter game that features fast-paced gameplay with parkour mechanics and giant mechs called Titans, allowing players to engage in both on-foot and mech combat in a futuristic setting."
     },
     {
@@ -126,7 +126,7 @@
         "developer": "Criterion Games",
         "publisher": "Electronic Arts",
         "rating": "E10+",
-        "price": "19.99€",
+        "price": "46.99€",
         "description": "An open-world racing game that combines street racing with a vibrant art style, where players can customize their cars and compete in various events to become the ultimate racer."
     },
     {
@@ -139,20 +139,20 @@
         "developer": "Square",
         "publisher": "Square",
         "rating": "T",
-        "price": "19.99€",
+        "price": "8.99€",
         "description": "A classic role-playing game that follows Cloud Strife and his allies as they battle against the Shinra Corporation and the enigmatic Sephiroth to save the planet from destruction."
     },
     {
         "id": 12,
         "title": "Halo 3",
-        "image": "assets/images/covers/halo-3.jpg",
+        "image": "assets/images/covers/halo3.jpg",
         "platforms": ["Xbox 360"],
         "release_year": 2007,
         "genre": "First-person shooter",
         "developer": "Bungie",
         "publisher": "Microsoft Game Studios",
         "rating": "M",
-        "price": "19.99€",
+        "price": "5.49€",
         "description": "The third installment in the Halo series, where players control the Master Chief as he battles against the Covenant and the Flood to save humanity and uncover the truth behind the Halo rings."
     },
     {
@@ -165,7 +165,7 @@
         "developer": "Atlus",
         "publisher": "Atlus",
         "rating": "M",
-        "price": "19.99€",
+        "price": "15.99€",
         "description": "A role-playing game that follows a group of high school students who discover their ability to summon Personas and fight against Shadows during the Dark Hour, a hidden time between midnight and dawn."
     },
     {
@@ -178,7 +178,7 @@
         "developer": "Nintendo EPD",
         "publisher": "Nintendo",
         "rating": "E",
-        "price": "19.99€",
+        "price": "46.49€",
         "description": "A kart racing game featuring characters from the Mario franchise"
     }
 ]
