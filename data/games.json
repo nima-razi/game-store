@@ -180,5 +180,57 @@
         "rating": "E",
         "price": "46.49€",
         "description": "A kart racing game featuring characters from the Mario franchise"
+    },  
+    {
+        "id": 15,
+        "title": "The Legend of Zelda: Breath of the Wild",
+        "image": "assets/images/covers/zelda-breath-of-the-wild.jpg",
+        "platforms": ["Nintendo Switch", "Wii U"],
+        "release_year": 2017,
+        "genre": "Action-adventure",
+        "developer": "Nintendo EPD",
+        "publisher": "Nintendo",
+        "rating": "E10+",
+        "price": "49.99€",
+        "description": "An open-world action-adventure game where players control Link as he awakens from a long slumber to defeat Calamity Ganon and save Hyrule."
+    },
+    {
+        "id": 16,
+        "title": "The Witcher 3: Wild Hunt",
+        "image": "assets/images/covers/the-witcher-3.jpg",
+        "platforms": ["PlayStation 4", "Xbox One", "PC", "Nintendo Switch"],
+        "release_year": 2015,
+        "genre": "Action role-playing",
+        "developer": "CD Projekt Red",
+        "publisher": "CD Projekt",
+        "rating": "M",
+        "price": "29.99€",
+        "description": "An open-world action role-playing game where players control Geralt of Rivia, a monster hunter, as he searches for his adopted daughter and battles various creatures and factions in a richly detailed world."
+    },
+    {
+        "id": 17,
+        "title": "Dark Souls III",
+        "image": "assets/images/covers/dark-souls-3.jpg",
+        "platforms": ["PlayStation 4", "Xbox One", "PC"],
+        "release_year": 2016,
+        "genre": "Action role-playing",
+        "developer": "FromSoftware",
+        "publisher": "Bandai Namco Entertainment",
+        "rating": "M",
+        "price": "19.99€",
+        "description": "An action role-playing game known for its challenging gameplay and intricate world design, where players explore the kingdom of Lothric and face powerful enemies and bosses."
+    },
+    {
+        "id": 18,
+        "title": "God of War (2018)",
+        "image": "assets/images/covers/god-of-war-2018.jpg",
+        "platforms": ["PlayStation 4"],
+        "release_year": 2018,
+        "genre": "Action-adventure",
+        "developer": "Santa Monica Studio",
+        "publisher": "Sony Interactive Entertainment",
+        "rating": "M",
+        "price": "29.99€",
+        "description": "An action-adventure game that follows Kratos and his son Atreus as they journey through the realms of Norse mythology to fulfill a promise to his deceased wife."
     }
 ]
