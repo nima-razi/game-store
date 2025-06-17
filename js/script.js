@@ -34,7 +34,7 @@ function myFunction() {
     if (results.length > 0) {
         // Store results in local storage
         localStorage.setItem('searchResults', JSON.stringify(results));
-        window.location.href = `search-results.html?query=${encodeURIComponent(searchQuery)}`;
+        window.location.href = `searchResults.html?query=${encodeURIComponent(searchQuery)}`;
     } else {
         alert('No results found.');
     }

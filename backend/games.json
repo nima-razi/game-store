@@ -1,0 +1,50 @@
+[
+  {
+    "title": "test",
+    "developer": "test",
+    "publisher": "test",
+    "rating": "E",
+    "price": "2€",
+    "release_year": 1111,
+    "description": "test",
+    "image": "assets/images/covers/default.jpg",
+    "platforms": [
+      "PC"
+    ],
+    "genre": "Action-adventure",
+    "id": 1750117594338,
+    "url": ""
+  },
+  {
+    "title": "test",
+    "developer": "test",
+    "publisher": "test",
+    "rating": "E",
+    "price": "2€",
+    "release_year": 3333,
+    "description": "test",
+    "image": "assets/images/covers/default.jpg",
+    "platforms": [
+      "PlayStation Portable"
+    ],
+    "genre": "Racing simulation",
+    "id": 1750117738668,
+    "url": ""
+  },
+  {
+    "title": "test",
+    "developer": "test",
+    "publisher": "test",
+    "rating": "Choose age rating",
+    "price": "66€",
+    "release_year": 6666,
+    "description": "test",
+    "image": "assets/images/covers/default.jpg",
+    "platforms": [
+      "PlayStation Portable"
+    ],
+    "genre": "Racing simulation",
+    "id": 1750117872482,
+    "url": ""
+  }
+]
