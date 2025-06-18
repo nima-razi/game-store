@@ -40,16 +40,16 @@
     },
     {
         "id": 4,
-        "title": "Gran Turismo 5",
-        "image": "assets/images/covers/gran-turismo-5.jpg",
-        "platforms": ["PlayStation 3"], 
-        "release_year": 2010,
-        "genre": "Racing simulation",
-        "developer": "Polyphony Digital",
-        "publisher": "Sony Computer Entertainment",
-        "rating": "E",
+        "title": "Death Stranding",
+        "image": "assets/images/covers/death-stranding.jpg",
+        "platforms": ["PlayStation 4"], 
+        "release_year": 2019,
+        "genre": "Action-adventure",
+        "developer": "Kojima Productions",
+        "publisher": "Sony Interactive Entertainment",
+        "rating": "M",
         "price": "5.49€",
-        "description": "A realistic racing simulation game featuring a wide variety of cars and tracks, with a focus on authentic driving physics and detailed graphics."
+        "description": "Death Stranding is a 2019 action-adventure game where you play as Sam Porter Bridges, a deliveryman tasked with reconnecting a fractured America after a cataclysmic event called the Death Stranding."
     },
     {
         "id": 5,

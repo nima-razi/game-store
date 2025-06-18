@@ -41,9 +41,9 @@ function setupPagination(totalGames) {
 }
 
 fetch('data/games.json')
-    .then(response => response.json())
-    .then(data => {
-        gamesData = data;
-        renderGames();
-        setupPagination(gamesData.length);
-    });
+.then(response => response.json())
+.then(data => {
+    gamesData = data;
+    renderGames();
+    setupPagination(gamesData.length);
+});
