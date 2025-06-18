@@ -22,10 +22,10 @@
                         </ul> 
                     </li> 
                 </ul> 
-                <form class="d-flex mt-3 mt-lg-0" role="search" onsubmit="event.preventDefault(); myFunction();"> 
-                    <input class="form-control me-2" type="search" placeholder="Search products" aria-label="Search" id="mySearch"> 
-                    <button class="btn btn-outline-primary" type="submit"><i class="bi bi-search"></i></button> 
-                </form> 
+                <div class="position-relative">
+                    <input class="form-control me-2" type="search" placeholder="Search products" id="mySearch" autocomplete="off">
+                    <ul id="suggestions" class="list-group position-absolute w-100" style="z-index: 1000;"></ul>
+                </div>
             </div> 
         </div> 
     </div> 
