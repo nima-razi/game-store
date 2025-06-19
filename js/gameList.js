@@ -31,6 +31,13 @@ function renderGames() {
         });
     }
 
+    if (selectedGenre) {
+        gamesToDisplay = gamesToDisplay.filter(game => {
+            const genres = Array.isArray(game.genre) ? game.genre : [game.genre];
+            return genres.some(g => g.toLowerCase() === selectedGenre.toLowerCase());
+        });
+    }
+
     const startIndex = (currentPage - 1) * gamesPerPage;
     const endIndex = startIndex + gamesPerPage;
     const currentGames = gamesToDisplay.slice(startIndex, endIndex);

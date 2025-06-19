@@ -82,10 +82,73 @@
     </div>
 
     <div class="container-fluid mt-5">
-        <div class="row mb-3">
-            <div class="col text-start"><h1>Games</h1></div>
-            <div class="col text-end">
-                <select id="sort-options" class="form-select w-auto d-inline-block">
+        <div class="row mb-3 g-2">
+            <div class="col-12 text-start"><h1>Games</h1></div>
+            <div class="col-12 col-md-6">
+                <label for="minPrice" class="form-label">Set min Price</label>
+                <input type="range" class="form-range" min="0" max="10" step="0.5" id="minPrice">
+            </div>
+            <div class="col-12 col-md-6">
+                <label for="maxPrice" class="form-label">Set max Price</label>
+                <input type="range" class="form-range" min="0" max="10" step="0.5" id="maxPrice">
+            </div>
+            <div class="col-6 col-md-4">
+                <select id="sort-platforms" class="form-select w-100 d-inline-block">
+                    <option value="">Platform</option>
+                    <option value="PlayStation Portable">PlayStation Portable</option>
+                    <option value="PlayStation">PlayStation</option>
+                    <option value="PlayStation 2">PlayStation 2</option>
+                    <option value="PlayStation 3">PlayStation 3</option>
+                    <option value="PlayStation 4">PlayStation 4</option>
+                    <option value="PlayStation 5">PlayStation 5</option>
+                    <option value="Xbox">Xbox</option>
+                    <option value="Xbox 360">Xbox 360</option>
+                    <option value="Xbox One">Xbox One</option>
+                    <option value="Xbox Series X/S">Xbox Series X/S</option>
+                    <option value="PC">PC</option>
+                    <option value="Nintendo Switch">Nintendo Switch</option>
+                    <option value="Wii U">Wii U</option>
+                </select>
+            </div>
+            <div class="col-6 col-md-4">
+                <select id="sort-genre" class="form-select w-100 d-inline-block">
+                    <option value="">Genre</option>
+                    <option value="Action-adventure">Action-adventure</option>
+                    <option value="Action role-playing">Action role-playing</option>
+                    <option value="First-person shooter">First-person shooter</option>
+                    <option value="Racing">Racing</option>
+                    <option value="Racing simulation">Racing simulation</option>
+                    <option value="Role-playing game">Role-playing game</option>
+                    <option value="Survival horror">Survival horror</option>
+                </select>
+            </div>
+            <div class="col-6 col-md-4">
+                <select id="sort-developer" class="form-select w-100 d-inline-block">
+                    <option value="">Developer</option>
+                    <option value=""></option>
+                    <option value=""></option>
+                    <option value=""></option>
+                </select>
+            </div>
+             <div class="col-6 col-md-4">
+                <select id="sort-publisher" class="form-select w-100 d-inline-block">
+                    <option value="">Publisher</option>
+                    <option value=""></option>
+                    <option value=""></option>
+                    <option value=""></option>
+                </select>
+            </div>
+            <div class="col-6 col-md-4">
+                <select id="sort-rating" class="form-select w-100 d-inline-block">
+                    <option value="">Rating</option>
+                    <option value="">E</option>
+                    <option value="">E10+</option>
+                    <option value="">T</option>
+                    <option value="">M</option>
+                </select>
+            </div>
+            <div class="col-6 col-md-4">
+                <select id="sort-options" class="form-select w-100 d-inline-block">
                     <option value="">Sort By</option>
                     <option value="az">Title A-Z</option>
                     <option value="za">Title Z-A</option>

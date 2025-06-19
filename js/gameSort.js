@@ -1,6 +1,7 @@
 let sortedGames = [];
 let currentSort = '';
 let selectedPlatform = '';
+let selectedGenre = '';
 
 function sortGames(criteria) {
     currentSort = criteria;
@@ -26,6 +27,12 @@ document.getElementById('sort-options').addEventListener('change', (e) => {
 
 document.getElementById('sort-platforms').addEventListener('change', (e) => {
     selectedPlatform = e.target.value;
+    currentPage = 1;
+    renderGames();
+});
+
+document.getElementById('sort-genre').addEventListener('change', (e) => {
+    selectedGenre = e.target.value;
     currentPage = 1;
     renderGames();
 });
