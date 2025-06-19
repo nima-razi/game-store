@@ -22,7 +22,15 @@ function renderGames() {
     const container = document.getElementById('game-list');
     container.innerHTML = '';
 
-    const gamesToDisplay = sortedGames.length ? sortedGames : gamesData;
+    let gamesToDisplay = sortedGames.length ? sortedGames : gamesData;
+
+    if (selectedPlatform) {
+        gamesToDisplay = gamesToDisplay.filter(game => {
+            const platforms = Array.isArray(game.platforms) ? game.platforms : [game.platforms];
+            return platforms.some(p => p.toLowerCase().includes(selectedPlatform.toLowerCase()));
+        });
+    }
+
     const startIndex = (currentPage - 1) * gamesPerPage;
     const endIndex = startIndex + gamesPerPage;
     const currentGames = gamesToDisplay.slice(startIndex, endIndex);

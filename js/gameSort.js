@@ -1,5 +1,6 @@
 let sortedGames = [];
 let currentSort = '';
+let selectedPlatform = '';
 
 function sortGames(criteria) {
     currentSort = criteria;
@@ -21,4 +22,10 @@ function sortGames(criteria) {
 
 document.getElementById('sort-options').addEventListener('change', (e) => {
     sortGames(e.target.value);
+});
+
+document.getElementById('sort-platforms').addEventListener('change', (e) => {
+    selectedPlatform = e.target.value;
+    currentPage = 1;
+    renderGames();
 });
