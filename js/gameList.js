@@ -18,6 +18,10 @@ function getPlatformClass(platform) {
     return 'secondary';
 }
 
+function parsePrice(priceStr) {
+    return parseFloat(priceStr.replace('€', '').replace(',', '.')) || 0;
+}
+
 function renderGames() {
     const container = document.getElementById('game-list');
     container.innerHTML = '';
@@ -37,6 +41,12 @@ function renderGames() {
             return genres.some(g => g.toLowerCase() === selectedGenre.toLowerCase());
         });
     }
+
+    // 🔽 Filter by price range
+    gamesToDisplay = gamesToDisplay.filter(game => {
+        const price = parsePrice(game.price);
+        return price >= minPrice && price <= maxPrice;
+    });
 
     const startIndex = (currentPage - 1) * gamesPerPage;
     const endIndex = startIndex + gamesPerPage;
