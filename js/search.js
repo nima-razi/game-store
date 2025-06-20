@@ -48,7 +48,7 @@ document.addEventListener('DOMContentLoaded', async () => {
 function myFunction() {
     const searchQuery = document.getElementById('mySearch').value.toLowerCase();
     localStorage.setItem('query', searchQuery);
-    window.location.href = `searchResults.html?query=${encodeURIComponent(searchQuery)}`;
+    window.location.href = `search-results.html?query=${encodeURIComponent(searchQuery)}`;
 }
 
 async function displayResults() {

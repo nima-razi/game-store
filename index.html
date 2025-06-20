@@ -83,14 +83,14 @@
 
     <div class="container-fluid mt-5">
         <div class="row mb-3 g-2">
-            <div class="col-12 text-start"><h1>Games</h1></div>
+            <div class="col-12 text-start"><h1>Gamelist</h1></div>
             <div class="col-12 col-md-6">
-                <label for="minPrice" class="form-label">Set min Price</label>
-                <input type="range" class="form-range" min="0" max="100" step="0.5" id="minPrice">
+                <label for="minPrice" class="form-label">MIN Price <output for="minPrice" id="showMinPrice" aria-hidden="true"></output> €</label>
+                <input type="range" class="form-range" value="0" min="0" max="100" step="0.5" id="minPrice">
             </div>
             <div class="col-12 col-md-6">
-                <label for="maxPrice" class="form-label">Set max Price</label>
-                <input type="range" class="form-range" min="0" max="100" step="0.5" id="maxPrice">
+                <label for="maxPrice" class="form-label">MAX Price <output for="maxPrice" id="showMaxPrice" aria-hidden="true"></output> €</label>
+                <input type="range" class="form-range" value="100" min="0" max="100" step="0.5" id="maxPrice">
             </div>
             <div class="col-6 col-md-4">
                 <select id="sort-platforms" class="form-select w-100 d-inline-block">

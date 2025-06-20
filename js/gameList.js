@@ -65,7 +65,7 @@ function renderGames() {
                 <div class="card h-100 shadow">
                     <img src="${game.image}" class="card-img-top" alt="${game.title}">
                     <div class="card-body d-flex flex-column">
-                        <h5 class="card-title"><a class="text-decoration-none" href="gameView.html?id=${game.id}">${game.title}</a></h5>
+                        <h5 class="card-title"><a class="text-decoration-none" href="game-view.html?id=${game.id}">${game.title}</a></h5>
                         <h3><strong>${game.price}</strong></h3>
                         <div class="mt-auto d-flex flex-wrap gap-1">${platformBadges}</div>
                     </div>
