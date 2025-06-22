@@ -46,25 +46,31 @@ document.addEventListener('DOMContentLoaded', async () => {
 });
 
 function myFunction() {
-    const searchQuery = document.getElementById('mySearch').value.toLowerCase();
-    localStorage.setItem('query', searchQuery);
-    window.location.href = `search-results.html?query=${encodeURIComponent(searchQuery)}`;
+    const searchQuery = document.getElementById('mySearch').value.trim();
+    if (searchQuery) {
+        window.location.href = `search-results.html?query=${encodeURIComponent(searchQuery)}`;
+    }
 }
 
 async function displayResults() {
-    const searchQuery = localStorage.getItem('query') || '';
+    const urlParams = new URLSearchParams(window.location.search);
+    const searchQuery = (urlParams.get('query') || '').toLowerCase();
+
     const resultsContainer = document.getElementById('searchResults');
+    if (!resultsContainer) return;
 
     try {
         const response = await fetch('data/games.json');
         const data = await response.json();
 
-        const results = data.filter(game => {
-            return [game.title, game.description, game.developer, game.publisher, ...(game.platforms || [])]
+        const results = data.filter(game =>
+            [game.title, game.description, game.developer, game.publisher, ...(game.platforms || [])]
                 .join(' ')
                 .toLowerCase()
-                .includes(searchQuery);
-        });
+                .includes(searchQuery)
+        );
+
+        resultsContainer.innerHTML = '';
 
         if (results.length > 0) {
             results.forEach(game => {
@@ -85,4 +91,5 @@ async function displayResults() {
         console.error(error);
     }
 }
+
 document.addEventListener('DOMContentLoaded', displayResults);
