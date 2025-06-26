@@ -83,8 +83,8 @@ function renderGames() {
 
         const html = `
             <div class="col-6 col-xl-2 col-lg-3 col-md-4 mb-4">
-                <div class="card h-100 shadow">
-                    <img src="${game.image}" class="card-img-top" alt="${game.title}">
+                <div class="card h-100 rounded-0">
+                    <img src="${game.image}" class="card-img-top rounded-0" alt="${game.title}">
                     <div class="card-body d-flex flex-column">
                         <h5 class="card-title"><a class="text-decoration-none stretched-link" href="game-view.html?id=${game.id}">${game.title}</a></h5>
                         <h3><strong>${game.price}</strong></h3>
