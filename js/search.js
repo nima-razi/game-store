@@ -1,6 +1,5 @@
 let gameData = [];
 
-// This function is called by script.js ONLY after nav.html is injected
 async function initSearch() {
     const searchInput = document.getElementById('mySearch');
     const suggestions = document.getElementById('suggestions');
@@ -16,7 +15,7 @@ async function initSearch() {
 
     searchInput.addEventListener('input', () => {
         const query = searchInput.value.toLowerCase();
-        suggestions.innerHTML = ''; // Clear previous suggestions
+        suggestions.innerHTML = ''; 
         
         if (!query) return;
 
@@ -30,14 +29,12 @@ async function initSearch() {
                 ...(game.platforms || [])
             ];
             return searchFields.join(' ').toLowerCase().includes(query);
-        }).slice(0, 5); // Limit to top 5 for the dropdown
+        }).slice(0, 5);
 
-        // --- THE MISSING PART: Creating the dropdown items ---
         matches.forEach(game => {
             const item = document.createElement('li');
             item.className = 'list-group-item list-group-item-action';
             
-            // Show title and a small hint of the genre/developer
             item.innerHTML = `
                 <div class="d-flex justify-content-between align-items-center">
                     <span>${game.title}</span>
@@ -48,7 +45,6 @@ async function initSearch() {
             item.addEventListener('click', () => {
                 searchInput.value = game.title;
                 suggestions.innerHTML = '';
-                // Optional: go straight to game-view instead of the search results page
                 window.location.href = `game-view.html?id=${game.id}`;
             });
             suggestions.appendChild(item);
@@ -62,7 +58,6 @@ async function initSearch() {
     });
 }
 
-// Redirect to results page
 function myFunction() {
     const searchInput = document.getElementById('mySearch');
     if (!searchInput) return;
@@ -72,7 +67,6 @@ function myFunction() {
     }
 }
 
-// Separate logic for the Search Results Page
 async function displayResults() {
     const resultsContainer = document.getElementById('searchResults');
     if (!resultsContainer) return; 
@@ -102,40 +96,40 @@ async function displayResults() {
                 const item = document.createElement('div');
                 item.classList.add('list-group-item', 'p-3');
                 
-                // We create a row to hold the image and the info side-by-side
                 item.innerHTML = `
-    <div class="row align-items-center">
-        <div class="col-3 col-md-2">
-            <img src="${game.image}" class="img-fluid rounded shadow-sm" alt="${game.title}">
-        </div>
-        <div class="col-9 col-md-10">
-            <div class="d-flex justify-content-between align-items-start">
-                <div>
-                    <h5 class="mb-1">${game.title}</h5>
-                    <p class="mb-1">
-                        <span class="badge bg-info text-dark">${game.genre}</span>
-                        <small class="text-muted ms-2">Dev: ${game.developer}</small>
-                    </p>
-                    <p class="mb-1 text-muted small text-truncate" style="max-width: 400px;">
-                        ${game.description}
-                    </p>
+                <div class="row align-items-center">
+                    <div class="col-3 col-md-2">
+                        <img src="${game.image}" class="img-fluid rounded shadow-sm" alt="${game.title}">
+                    </div>
+                    <div class="col-9 col-md-10">
+                        <div class="d-flex justify-content-between align-items-start">
+                            <div>
+                                <h5 class="mb-1">${game.title}</h5>
+                                <p class="mb-1">
+                                    <span class="badge bg-info text-dark">${game.genre}</span>
+                                    <small class="text-muted ms-2">Dev: ${game.developer}</small>
+                                </p>
+                                <p class="mb-1 text-muted small text-truncate" style="max-width: 400px;">
+                                    ${game.description}
+                                </p>
+                            </div>
+                            <a href="game-view.html?id=${game.id}" class="btn btn-outline-primary btn-sm">
+                                View Game
+                            </a>
+                        </div>
+                    </div>
                 </div>
-                <a href="game-view.html?id=${game.id}" class="btn btn-outline-primary btn-sm">
-                    View Game
-                </a>
-            </div>
-        </div>
-    </div>
-`;
-                resultsContainer.appendChild(item);
-            });
-        } else {
-            resultsContainer.innerHTML = `
-                <div class="text-center py-5">
-                    <i class="bi bi-search text-muted" style="font-size: 3rem;"></i>
-                    <p class="mt-3">No results found for "${searchQuery}"</p>
-                    <a href="videogames.html" class="btn btn-primary">Browse All Games</a>
-                </div>`;
+            `;
+            resultsContainer.appendChild(item);
+        });
+    
+    } else {
+        resultsContainer.innerHTML = `
+            <div class="text-center py-5">
+                <i class="bi bi-search text-muted" style="font-size: 3rem;"></i>
+                <p class="mt-3">No results found for "${searchQuery}"</p>
+                <a href="videogames.html" class="btn btn-primary">Browse All Games</a>
+            </div>`;
         }
     } catch (error) {
         resultsContainer.innerHTML = '<p>Error loading data.</p>';
@@ -143,5 +137,4 @@ async function displayResults() {
     }
 }
 
-// Still run displayResults on load (for the search-results.html page)
 document.addEventListener('DOMContentLoaded', displayResults);

@@ -11,7 +11,6 @@ function setupPagination(totalGames) {
             <a class="page-link" href="#" data-page="${currentPage - 1}">Previous</a>
         </li>
     `;
-
     for (let i = 1; i <= totalPages; i++) {
         const active = i === currentPage ? 'active' : '';
         pagination.innerHTML += `
@@ -20,13 +19,11 @@ function setupPagination(totalGames) {
             </li>
         `;
     }
-
     pagination.innerHTML += `
         <li class="page-item ${nextClass}">
             <a class="page-link" href="#" data-page="${currentPage + 1}">Next</a>
         </li>
     `;
-
     document.querySelectorAll('.page-link').forEach(link => {
         link.addEventListener('click', e => {
             e.preventDefault();

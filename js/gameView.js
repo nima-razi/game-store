@@ -12,7 +12,6 @@ fetch('data/games.json')
 
         const platformOptions = game.platforms.map(p => `<option value="${p}">${p}</option>`).join('');
 
-        // 1. Added IDs to the <select> and <button> for easy targeting
         document.getElementById('game-details').innerHTML = `
         <div class="row justify-content-center align-items-center">
             <div class="col-6 col-md-4">
@@ -72,18 +71,15 @@ fetch('data/games.json')
             </div>
         </div>`;
 
-        // 2. Attach the event listener AFTER the HTML is injected
         document.getElementById('add-to-cart-btn').addEventListener('click', () => {
             addToCart(game);
         });
     });
 
-// 3. The logic to save the item to LocalStorage
 function addToCart(game) {
     const qty = parseInt(document.getElementById('qty').value);
     const platform = document.getElementById('platform-select').value;
 
-    // Basic Validation
     if (!platform) {
         alert("Please select a platform!");
         return;
@@ -93,17 +89,14 @@ function addToCart(game) {
         return;
     }
 
-    // Create the item object
     const cartItem = {
-        ...game, // Spread operator copies all properties from the game JSON
+        ...game, 
         selectedQuantity: qty,
         selectedPlatform: platform
     };
 
-    // Get current cart or initialize empty array
     let cart = JSON.parse(localStorage.getItem('cart')) || [];
 
-    // Optional: Check if item already exists in cart (same ID and Platform)
     const existingItemIndex = cart.findIndex(item => item.id === game.id && item.selectedPlatform === platform);
 
     if (existingItemIndex > -1) {
@@ -112,14 +105,11 @@ function addToCart(game) {
         cart.push(cartItem);
     }
 
-    // Save back to localStorage
     localStorage.setItem('cart', JSON.stringify(cart));
 
-    // THIS IS THE KEY:
     if (typeof refreshBadge === "function") {
         refreshBadge();
     }
 
-    // Feedback for the user
     alert(`${game.title} added to cart!`);
 }

@@ -54,7 +54,6 @@ document.addEventListener("DOMContentLoaded", () => {
             (Array.isArray(game.platforms) ? game.platforms : [game.platforms])
             .forEach(g => platformSet.add(g));
         });
-        
         populateSelect("sort-publisher", Array.from(publisherSet).sort());
         populateSelect("sort-developer", Array.from(developerSet).sort());
         populateSelect("sort-rating", Array.from(ratingSet).sort());
@@ -130,7 +129,6 @@ const minRangeOutput = document.getElementById('showMinPrice');
 const maxRangeInput = document.getElementById('maxPrice');
 const maxRangeOutput = document.getElementById('showMaxPrice');
 
-// Set initial value
 minRangeOutput.textContent = minRangeInput.value;
 maxRangeOutput.textContent = maxRangeInput.value;
 

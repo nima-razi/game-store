@@ -25,45 +25,37 @@ function parsePrice(priceStr) {
 function renderGames() {
     const container = document.getElementById('game-list');
     container.innerHTML = '';
-
     let gamesToDisplay = sortedGames.length ? sortedGames : gamesData;
-
     if (selectedPlatform) {
         gamesToDisplay = gamesToDisplay.filter(game => {
             const platforms = Array.isArray(game.platforms) ? game.platforms : [game.platforms];
             return platforms.some(p => p.toLowerCase().includes(selectedPlatform.toLowerCase()));
         });
     }
-
     if (selectedGenre) {
         gamesToDisplay = gamesToDisplay.filter(game => {
             const genres = Array.isArray(game.genre) ? game.genre : [game.genre];
             return genres.some(g => g.toLowerCase() === selectedGenre.toLowerCase());
         });
     }
-
     if (selectedDeveloper) {
         gamesToDisplay = gamesToDisplay.filter(game => {
             const developer = Array.isArray(game.developer) ? game.developer : [game.developer];
             return developer.some(g => g.toLowerCase() === selectedDeveloper.toLowerCase());
         });
     }
-
     if (selectedPublisher) {
         gamesToDisplay = gamesToDisplay.filter(game => {
             const publisher = Array.isArray(game.publisher) ? game.publisher : [game.publisher];
             return publisher.some(g => g.toLowerCase() === selectedPublisher.toLowerCase());
         });
     }
-
     if (selectedRating) {
         gamesToDisplay = gamesToDisplay.filter(game => {
             const rating = Array.isArray(game.rating) ? game.rating : [game.rating];
             return rating.some(g => g.toLowerCase() === selectedRating.toLowerCase());
         });
     }
-
-    // 🔽 Filter by price range
     gamesToDisplay = gamesToDisplay.filter(game => {
         const price = parsePrice(game.price);
         return price >= minPrice && price <= maxPrice;

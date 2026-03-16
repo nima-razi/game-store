@@ -20,7 +20,6 @@ function renderCart() {
     }
 
     cartItems.forEach((item, index) => {
-        // Calculate price: remove the '€' and multiply by quantity
         const priceValue = parseFloat(item.price.replace('€', ''));
         totalPrice += priceValue * (item.selectedQuantity || 1);
 
@@ -60,7 +59,6 @@ function updateCartCount(count) {
 
 function refreshBadge() {
     const cart = JSON.parse(localStorage.getItem('cart')) || [];
-    // This sums up the quantities of all items
     const totalItems = cart.reduce((sum, item) => sum + (Number(item.selectedQuantity) || 1), 0);
     updateCartCount(totalItems);
 }
@@ -68,16 +66,14 @@ function refreshBadge() {
 document.addEventListener('DOMContentLoaded', () => {
     refreshBadge(); 
     
-    // CRITICAL: Call renderCart so the items actually show up!
     if (document.getElementById('shopping-cart')) { 
         renderCart(); 
     }
 });
 
-// Function to remove an item
 window.removeItem = function(index) {
     let cartItems = JSON.parse(localStorage.getItem('cart')) || [];
-    cartItems.splice(index, 1); // Remove item at the specific index
+    cartItems.splice(index, 1);
     localStorage.setItem('cart', JSON.stringify(cartItems));
-    renderCart(); // Refresh the view
+    renderCart();
 };
