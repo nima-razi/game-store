@@ -2,7 +2,7 @@
     {
         "id": 1,
         "title": "Call of Duty: Modern Warfare",
-        "image": "assets/images/covers/cod4-mw.jpg",
+        "image": "assets/images/covers/cod4-mw.webp",
         "platforms": ["PlayStation 3", "Xbox 360", "PC"], 
         "release_year": 2007,
         "genre": "First-person shooter",
@@ -15,7 +15,7 @@
     {
         "id": 2,
         "title": "Yakuza 0",
-        "image": "assets/images/covers/yakuza0.jpg",
+        "image": "assets/images/covers/yakuza0.webp",
         "platforms": ["PlayStation 4", "PC"], 
         "release_year": 2015,
         "genre": "Action-adventure",
@@ -28,7 +28,7 @@
     {
         "id": 3,
         "title": "Need for Speed: Most Wanted",
-        "image": "assets/images/covers/nfs-most-wanted.jpg",
+        "image": "assets/images/covers/nfs-most-wanted.webp",
         "platforms": ["PlayStation 2", "Xbox", "PC"], 
         "release_year": 2005,
         "genre": "Racing",
@@ -41,7 +41,7 @@
     {
         "id": 4,
         "title": "Death Stranding",
-        "image": "assets/images/covers/death-stranding.jpg",
+        "image": "assets/images/covers/death-stranding.webp",
         "platforms": ["PlayStation 4"], 
         "release_year": 2019,
         "genre": "Action-adventure",
@@ -54,7 +54,7 @@
     {
         "id": 5,
         "title": "Assassin's Creed III",
-        "image": "assets/images/covers/assassins-creed-3.jpg",
+        "image": "assets/images/covers/assassins-creed-3.webp",
         "platforms": ["PlayStation 3", "Xbox 360", "PC"], 
         "release_year": 2012,
         "genre": "Action-adventure",
@@ -67,7 +67,7 @@
     {
         "id": 6,
         "title": "Battlefield 3",
-        "image": "assets/images/covers/battlefield-3.jpg",
+        "image": "assets/images/covers/battlefield-3.webp",
         "platforms": ["PlayStation 3", "Xbox 360", "PC"], 
         "release_year": 2011,
         "genre": "First-person shooter",
@@ -80,7 +80,7 @@
     {
         "id": 7,
         "title": "Gran Turismo 5",
-        "image": "assets/images/covers/gran-turismo-5.jpg",
+        "image": "assets/images/covers/gran-turismo-5.webp",
         "platforms": ["PlayStation 3"], 
         "release_year": 2010,
         "genre": "Racing simulation",
@@ -93,7 +93,7 @@
     {
         "id": 8,
         "title": "Resident Evil 2",
-        "image": "assets/images/covers/resident-evil-2.jpg",
+        "image": "assets/images/covers/resident-evil-2.webp",
         "platforms": ["PlayStation 4", "Xbox One", "PC"], 
         "release_year": 2019,
         "genre": "Survival horror",
@@ -106,7 +106,7 @@
     {
         "id": 9,
         "title": "Titanfall",
-        "image": "assets/images/covers/titanfall.jpg",
+        "image": "assets/images/covers/titanfall.webp",
         "platforms": ["Xbox One", "Xbox 360", "PC"], 
         "release_year": 2014,
         "genre": "First-person shooter",
@@ -119,7 +119,7 @@
     {
         "id": 10,
         "title": "Need for Speed: Unbound",
-        "image": "assets/images/covers/nfs-unbound.png",
+        "image": "assets/images/covers/nfs-unbound.webp",
         "platforms": ["PlayStation 5", "Xbox Series X/S", "PC"], 
         "release_year": 2022,
         "genre": "Racing",
@@ -132,7 +132,7 @@
     {
         "id": 11,
         "title": "Final Fantasy VII",
-        "image": "assets/images/covers/final-fantasy-7.jpg",
+        "image": "assets/images/covers/final-fantasy-7.webp",
         "platforms": ["PlayStation", "PC"],
         "release_year": 1997,
         "genre": "Role-playing game",
@@ -145,7 +145,7 @@
     {
         "id": 12,
         "title": "Halo 3",
-        "image": "assets/images/covers/halo3.jpg",
+        "image": "assets/images/covers/halo3.webp",
         "platforms": ["Xbox 360"],
         "release_year": 2007,
         "genre": "First-person shooter",
@@ -158,7 +158,7 @@
     {
         "id": 13,
         "title": "Persona 3",
-        "image": "assets/images/covers/persona-3.jpg",
+        "image": "assets/images/covers/persona-3.webp",
         "platforms": ["PlayStation 2", "PlayStation Portable"],
         "release_year": 2006,
         "genre": "Role-playing game",
@@ -184,7 +184,7 @@
     {
         "id": 15,
         "title": "The Legend of Zelda: Breath of the Wild",
-        "image": "assets/images/covers/zelda-breath-of-the-wild.jpg",
+        "image": "assets/images/covers/zelda-breath-of-the-wild.webp",
         "platforms": ["Nintendo Switch", "Wii U"],
         "release_year": 2017,
         "genre": "Action-adventure",
@@ -197,7 +197,7 @@
     {
         "id": 16,
         "title": "The Witcher 3: Wild Hunt",
-        "image": "assets/images/covers/the-witcher-3.jpg",
+        "image": "assets/images/covers/the-witcher-3.webp",
         "platforms": ["PlayStation 4", "Xbox One", "PC", "Nintendo Switch"],
         "release_year": 2015,
         "genre": "Action role-playing",
@@ -210,7 +210,7 @@
     {
         "id": 17,
         "title": "Dark Souls III",
-        "image": "assets/images/covers/dark-souls-3.jpg",
+        "image": "assets/images/covers/dark-souls-3.webp",
         "platforms": ["PlayStation 4", "Xbox One", "PC"],
         "release_year": 2016,
         "genre": "Action role-playing",
@@ -223,7 +223,7 @@
     {
         "id": 18,
         "title": "God of War (2018)",
-        "image": "assets/images/covers/god-of-war-2018.jpg",
+        "image": "assets/images/covers/god-of-war-2018.webp",
         "platforms": ["PlayStation 4"],
         "release_year": 2018,
         "genre": "Action-adventure",
