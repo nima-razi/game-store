@@ -1,8 +1,6 @@
-// Get the ID from the URL
 const urlParams = new URLSearchParams(window.location.search);
 const gameId = urlParams.get('id');
 
-// Fetch the game data
 fetch('data/games.json')
     .then(res => res.json())
     .then(games => {
@@ -12,10 +10,9 @@ fetch('data/games.json')
             return;
         }
 
-        // Build platform options
-        const platformOptions = game.platforms.map(p => `<option>${p}</option>`).join('');
+        const platformOptions = game.platforms.map(p => `<option value="${p}">${p}</option>`).join('');
 
-        // Insert dynamic content
+        // 1. Added IDs to the <select> and <button> for easy targeting
         document.getElementById('game-details').innerHTML = `
         <div class="row justify-content-center align-items-center">
             <div class="col-6 col-md-4">
@@ -26,16 +23,16 @@ fetch('data/games.json')
                 <h1><strong>${game.price}</strong></h1>
                 <form class="row">
                     <div class="col-12 mb-3">
-                        <input class="form-control" min="0" type="number" name="qty" id="qty" placeholder="Select Qty">
+                        <input class="form-control" min="1" value="1" type="number" id="qty" placeholder="Select Qty">
                     </div>
                     <div class="col-12 mb-3">
-                        <select class="form-select" aria-label="Select Platform">
-                            <option selected>Select Platform</option>
+                        <select class="form-select" id="platform-select">
+                            <option value="" selected disabled>Select Platform</option>
                             ${platformOptions}
                         </select>
                     </div>
                     <div class="col-auto mb-3">
-                        <button type="button" class="btn btn-primary">Add to Cart</button>
+                        <button type="button" id="add-to-cart-btn" class="btn btn-primary">Add to Cart</button>
                     </div>
                 </form> 
             </div>
@@ -73,6 +70,51 @@ fetch('data/games.json')
                     </div>
                 </div> 
             </div>
-        </div>
-    `;
-});
+        </div>`;
+
+        // 2. Attach the event listener AFTER the HTML is injected
+        document.getElementById('add-to-cart-btn').addEventListener('click', () => {
+            addToCart(game);
+        });
+    });
+
+// 3. The logic to save the item to LocalStorage
+function addToCart(game) {
+    const qty = parseInt(document.getElementById('qty').value);
+    const platform = document.getElementById('platform-select').value;
+
+    // Basic Validation
+    if (!platform) {
+        alert("Please select a platform!");
+        return;
+    }
+    if (isNaN(qty) || qty < 1) {
+        alert("Please enter a valid quantity!");
+        return;
+    }
+
+    // Create the item object
+    const cartItem = {
+        ...game, // Spread operator copies all properties from the game JSON
+        selectedQuantity: qty,
+        selectedPlatform: platform
+    };
+
+    // Get current cart or initialize empty array
+    let cart = JSON.parse(localStorage.getItem('cart')) || [];
+
+    // Optional: Check if item already exists in cart (same ID and Platform)
+    const existingItemIndex = cart.findIndex(item => item.id === game.id && item.selectedPlatform === platform);
+
+    if (existingItemIndex > -1) {
+        cart[existingItemIndex].selectedQuantity += qty;
+    } else {
+        cart.push(cartItem);
+    }
+
+    // Save back to localStorage
+    localStorage.setItem('cart', JSON.stringify(cart));
+
+    // Feedback for the user
+    alert(`${game.title} added to cart!`);
+}
