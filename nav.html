@@ -1,6 +1,12 @@
 <nav class="navbar navbar-expand-lg shadow bg-body-tertiary" aria-label="Offcanvas"> 
     <div class="container-fluid"> 
         <a class="navbar-brand" href="index.html">GAMESITE</a> 
+        <div class="d-flex align-items-center ms-auto me-3 me-lg-0 order-lg-last">
+            <a class="nav-link position-relative" href="shopping-cart.html" aria-label="Shopping Cart">
+                <i class="bi bi-cart4 fs-4"></i>
+                <span id="cart-count-badge" class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger d-none"></span>
+            </a>
+        </div>
         <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNav" aria-controls="offcanvasNav" aria-label="Toggle navigation"> 
             <span class="navbar-toggler-icon"></span> 
         </button> 
@@ -22,21 +28,15 @@
                     </li> 
                     <li class="nav-item">
                         <a class="nav-link" href="#">DIGITAL CODES</a></li> 
-                    <li class="nav-item dropdown"> <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">MODALS</a> 
+                    <!-- <li class="nav-item dropdown"> <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">MODALS</a> 
                         <ul class="dropdown-menu">
                             <li><a class="dropdown-item" href="add-game-modal.html">ADD GAME MODAL</a></li>
                         </ul> 
-                    </li> 
+                    </li>  -->
                 </ul> 
                 <div class="position-relative me-3 mt-3 mt-lg-0">
                     <input class="form-control" type="search" placeholder="Search products" id="mySearch" autocomplete="off">
                     <ul id="suggestions" class="list-group position-absolute w-100" style="z-index: 1000;"></ul>
-                </div>
-                <div class="position-relative mt-3 mt-lg-0">
-                    <a href="shopping-cart.html" class="btn btn-light position-relative">
-                        <i class="bi bi-cart4"></i>
-                        <span id="cart-count-badge" class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger d-none"></span>
-                    </a>
                 </div>
             </div> 
         </div> 
