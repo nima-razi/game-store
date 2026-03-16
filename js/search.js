@@ -5,7 +5,6 @@ async function initSearch() {
     const searchInput = document.getElementById('mySearch');
     const suggestions = document.getElementById('suggestions');
 
-    // Safety check: if these aren't on the page, don't run the rest
     if (!searchInput || !suggestions) return;
 
     try {
@@ -17,24 +16,40 @@ async function initSearch() {
 
     searchInput.addEventListener('input', () => {
         const query = searchInput.value.toLowerCase();
-        suggestions.innerHTML = '';
+        suggestions.innerHTML = ''; // Clear previous suggestions
+        
         if (!query) return;
 
-        const matches = gameData.filter(game =>
-            [game.title, game.description, game.developer, game.publisher, ...(game.platforms || [])]
-                .join(' ')
-                .toLowerCase()
-                .includes(query)
-        ).slice(0, 5);
+        const matches = gameData.filter(game => {
+            const searchFields = [
+                game.title,
+                game.developer,
+                game.publisher,
+                game.genre,
+                game.description,
+                ...(game.platforms || [])
+            ];
+            return searchFields.join(' ').toLowerCase().includes(query);
+        }).slice(0, 5); // Limit to top 5 for the dropdown
 
+        // --- THE MISSING PART: Creating the dropdown items ---
         matches.forEach(game => {
             const item = document.createElement('li');
             item.className = 'list-group-item list-group-item-action';
-            item.textContent = game.title;
+            
+            // Show title and a small hint of the genre/developer
+            item.innerHTML = `
+                <div class="d-flex justify-content-between align-items-center">
+                    <span>${game.title}</span>
+                    <small class="text-muted" style="font-size: 0.75rem;">${game.genre}</small>
+                </div>
+            `;
+
             item.addEventListener('click', () => {
                 searchInput.value = game.title;
                 suggestions.innerHTML = '';
-                myFunction();
+                // Optional: go straight to game-view instead of the search results page
+                window.location.href = `game-view.html?id=${game.id}`;
             });
             suggestions.appendChild(item);
         });
@@ -69,28 +84,58 @@ async function displayResults() {
         const response = await fetch('data/games.json');
         const data = await response.json();
 
-        const results = data.filter(game =>
-            [game.title, game.description, game.developer, game.publisher, ...(game.platforms || [])]
-                .join(' ')
-                .toLowerCase()
-                .includes(searchQuery)
-        );
+        const results = data.filter(game => {
+    return [
+        game.title,
+        game.developer,
+        game.publisher,
+        game.genre,
+        game.description,
+        ...(game.platforms || [])
+    ].join(' ').toLowerCase().includes(searchQuery);
+});
 
         resultsContainer.innerHTML = '';
 
         if (results.length > 0) {
             results.forEach(game => {
                 const item = document.createElement('div');
-                item.classList.add('list-group-item');
+                item.classList.add('list-group-item', 'p-3');
+                
+                // We create a row to hold the image and the info side-by-side
                 item.innerHTML = `
-                    <h5>${game.title}</h5>
-                    <p>${game.description}</p>
-                    <small>Platforms: ${game.platforms.join(', ')}</small>
-                `;
+    <div class="row align-items-center">
+        <div class="col-3 col-md-2">
+            <img src="${game.image}" class="img-fluid rounded shadow-sm" alt="${game.title}">
+        </div>
+        <div class="col-9 col-md-10">
+            <div class="d-flex justify-content-between align-items-start">
+                <div>
+                    <h5 class="mb-1">${game.title}</h5>
+                    <p class="mb-1">
+                        <span class="badge bg-info text-dark">${game.genre}</span>
+                        <small class="text-muted ms-2">Dev: ${game.developer}</small>
+                    </p>
+                    <p class="mb-1 text-muted small text-truncate" style="max-width: 400px;">
+                        ${game.description}
+                    </p>
+                </div>
+                <a href="game-view.html?id=${game.id}" class="btn btn-outline-primary btn-sm">
+                    View Game
+                </a>
+            </div>
+        </div>
+    </div>
+`;
                 resultsContainer.appendChild(item);
             });
         } else {
-            resultsContainer.innerHTML = '<p>No results found.</p>';
+            resultsContainer.innerHTML = `
+                <div class="text-center py-5">
+                    <i class="bi bi-search text-muted" style="font-size: 3rem;"></i>
+                    <p class="mt-3">No results found for "${searchQuery}"</p>
+                    <a href="videogames.html" class="btn btn-primary">Browse All Games</a>
+                </div>`;
         }
     } catch (error) {
         resultsContainer.innerHTML = '<p>Error loading data.</p>';
