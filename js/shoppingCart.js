@@ -5,7 +5,7 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 function renderCart() {
-    const cartContainer = document.getElementById('shpping-cart');
+    const cartContainer = document.getElementById('shopping-cart'); 
     const totalElement = document.getElementById('cart-total-price');
     const cartItems = JSON.parse(localStorage.getItem('cart')) || [];
 
@@ -48,19 +48,31 @@ function renderCart() {
 
 function updateCartCount(count) {
     const counterElement = document.getElementById('cart-count-badge');
-    
     if (counterElement) {
         if (count > 0) {
-            // 1. Set the number
             counterElement.innerText = count;
-            // 2. Remove 'd-none' to show it
             counterElement.classList.remove('d-none');
         } else {
-            // 3. Add 'd-none' to hide it if count is 0 or less
             counterElement.classList.add('d-none');
         }
     }
 }
+
+function refreshBadge() {
+    const cart = JSON.parse(localStorage.getItem('cart')) || [];
+    // This sums up the quantities of all items
+    const totalItems = cart.reduce((sum, item) => sum + (Number(item.selectedQuantity) || 1), 0);
+    updateCartCount(totalItems);
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+    refreshBadge(); 
+    
+    // CRITICAL: Call renderCart so the items actually show up!
+    if (document.getElementById('shopping-cart')) { 
+        renderCart(); 
+    }
+});
 
 // Function to remove an item
 window.removeItem = function(index) {

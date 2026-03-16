@@ -1,6 +1,13 @@
 let gameData = [];
 
-document.addEventListener('DOMContentLoaded', async () => {
+// This function is called by script.js ONLY after nav.html is injected
+async function initSearch() {
+    const searchInput = document.getElementById('mySearch');
+    const suggestions = document.getElementById('suggestions');
+
+    // Safety check: if these aren't on the page, don't run the rest
+    if (!searchInput || !suggestions) return;
+
     try {
         const res = await fetch('data/games.json');
         gameData = await res.json();
@@ -8,13 +15,9 @@ document.addEventListener('DOMContentLoaded', async () => {
         console.error('Failed to load game data:', e);
     }
 
-    const searchInput = document.getElementById('mySearch');
-    const suggestions = document.getElementById('suggestions');
-
     searchInput.addEventListener('input', () => {
         const query = searchInput.value.toLowerCase();
         suggestions.innerHTML = '';
-
         if (!query) return;
 
         const matches = gameData.filter(game =>
@@ -22,7 +25,7 @@ document.addEventListener('DOMContentLoaded', async () => {
                 .join(' ')
                 .toLowerCase()
                 .includes(query)
-        ).slice(0, 5); // limit to 5 suggestions
+        ).slice(0, 5);
 
         matches.forEach(game => {
             const item = document.createElement('li');
@@ -31,33 +34,36 @@ document.addEventListener('DOMContentLoaded', async () => {
             item.addEventListener('click', () => {
                 searchInput.value = game.title;
                 suggestions.innerHTML = '';
-                myFunction(); // optionally run full search
+                myFunction();
             });
             suggestions.appendChild(item);
         });
     });
 
-    // Optional: hide suggestions when clicking elsewhere
     document.addEventListener('click', (e) => {
         if (!suggestions.contains(e.target) && e.target !== searchInput) {
             suggestions.innerHTML = '';
         }
     });
-});
+}
 
+// Redirect to results page
 function myFunction() {
-    const searchQuery = document.getElementById('mySearch').value.trim();
+    const searchInput = document.getElementById('mySearch');
+    if (!searchInput) return;
+    const searchQuery = searchInput.value.trim();
     if (searchQuery) {
         window.location.href = `search-results.html?query=${encodeURIComponent(searchQuery)}`;
     }
 }
 
+// Separate logic for the Search Results Page
 async function displayResults() {
+    const resultsContainer = document.getElementById('searchResults');
+    if (!resultsContainer) return; 
+
     const urlParams = new URLSearchParams(window.location.search);
     const searchQuery = (urlParams.get('query') || '').toLowerCase();
-
-    const resultsContainer = document.getElementById('searchResults');
-    if (!resultsContainer) return;
 
     try {
         const response = await fetch('data/games.json');
@@ -92,4 +98,5 @@ async function displayResults() {
     }
 }
 
+// Still run displayResults on load (for the search-results.html page)
 document.addEventListener('DOMContentLoaded', displayResults);

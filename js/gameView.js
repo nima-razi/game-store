@@ -115,6 +115,11 @@ function addToCart(game) {
     // Save back to localStorage
     localStorage.setItem('cart', JSON.stringify(cart));
 
+    // THIS IS THE KEY:
+    if (typeof refreshBadge === "function") {
+        refreshBadge();
+    }
+
     // Feedback for the user
     alert(`${game.title} added to cart!`);
 }
